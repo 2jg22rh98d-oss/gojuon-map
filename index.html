@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f26b5b" />
+    <meta name="description" content="소리와 위치로 익히는 히라가나·가타카나 오십음도 학습" />
+    <title>고주온 지도</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" id="homeButton" aria-label="처음으로">
+          <span class="brand-mark">あ</span>
+          <span><strong>고주온 지도</strong><small>소리와 위치로 기억해요</small></span>
+        </button>
+        <button class="icon-button" id="soundButton" aria-label="소리 켜기/끄기" title="소리 켜기/끄기">🔊</button>
+      </header>
+
+      <main>
+        <section id="homeScreen" class="screen active">
+          <div class="hero">
+            <p class="eyebrow">五十音図 · 46글자</p>
+            <h1>문자의 <em>자리</em>를 알면<br />소리도 오래 기억돼요.</h1>
+            <p>표를 보고, 듣고, 직접 놓으면서 일본어 글자의 공간 지도를 만들어 보세요.</p>
+          </div>
+
+          <div class="script-picker" role="group" aria-label="문자 선택">
+            <button class="script-card selected" data-script="hiragana">
+              <span class="sample">あ</span><span><strong>히라가나</strong><small>ひらがな</small></span><span class="check">✓</span>
+            </button>
+            <button class="script-card" data-script="katakana">
+              <span class="sample">ア</span><span><strong>가타카나</strong><small>カタカナ</small></span><span class="check">✓</span>
+            </button>
+          </div>
+
+          <h2 class="section-title">학습 단계</h2>
+          <div class="lesson-list" id="lessonList"></div>
+
+          <div class="progress-card">
+            <div><span>오늘의 학습</span><strong id="totalCorrect">0문제 정답</strong></div>
+            <div class="progress-track"><div id="progressFill"></div></div>
+            <button id="resetProgress" class="text-button">기록 초기화</button>
+          </div>
+        </section>
+
+        <section id="lessonScreen" class="screen">
+          <div class="lesson-header">
+            <button class="back-button" id="backButton">← 나가기</button>
+            <div class="lesson-heading">
+              <span id="lessonBadge">히라가나 · 1단계</span>
+              <h1 id="lessonTitle">자리와 소리 익히기</h1>
+            </div>
+            <div class="score-pill"><span id="questionProgress">1 / 10</span><strong id="scoreText">정답 0</strong></div>
+          </div>
+
+          <div class="instruction" id="instruction"></div>
+          <div class="prompt-card" id="promptCard" hidden>
+            <span class="prompt-label" id="promptLabel">들리는 문자의 자리를 찾아보세요</span>
+            <strong id="promptCharacter"></strong>
+            <button id="replayButton" class="replay-button">▶ 소리 듣기</button>
+          </div>
+
+          <div class="board-wrap">
+            <div id="gojuonBoard" class="gojuon-board" aria-label="오십음도표"></div>
+          </div>
+
+          <div id="cardArea" class="card-area" hidden>
+            <p>문자 카드를 선택한 뒤 알맞은 칸을 누르세요.</p>
+            <div id="cardTray" class="card-tray"></div>
+          </div>
+
+          <div class="lesson-actions">
+            <button id="playSequenceButton" class="primary-button">▶ 학습 시작</button>
+            <button id="nextButton" class="primary-button" hidden>다음 문제 →</button>
+          </div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+        </section>
+
+        <section id="resultScreen" class="screen result-screen">
+          <div class="result-icon">花</div>
+          <p class="eyebrow">학습 완료</p>
+          <h1 id="resultTitle">참 잘했어요!</h1>
+          <p id="resultSummary"></p>
+          <div class="result-stats">
+            <div><strong id="resultScore">0</strong><span>정답</span></div>
+            <div><strong id="resultAccuracy">0%</strong><span>정확도</span></div>
+          </div>
+          <button id="retryButton" class="primary-button">한 번 더 하기</button>
+          <button id="resultHomeButton" class="secondary-button">학습 단계로 돌아가기</button>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
