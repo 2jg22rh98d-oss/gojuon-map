@@ -91,6 +91,26 @@
           <button id="resultHomeButton" class="secondary-button">학습 단계로 돌아가기</button>
         </section>
       </main>
+
+      <div id="strokePractice" class="stroke-practice" hidden>
+        <div class="stroke-backdrop"></div>
+        <section class="stroke-dialog" role="dialog" aria-modal="true" aria-labelledby="strokeTitle">
+          <p class="eyebrow">필순 안내</p>
+          <h2 id="strokeTitle"><span id="strokeCharacter">あ</span>를 따라 써보세요</h2>
+          <p class="stroke-description">붉은 선이 나타나는 순서와 방향을 잘 살펴보세요.</p>
+          <div class="stroke-canvas">
+            <span class="guide-line vertical"></span>
+            <span class="guide-line horizontal"></span>
+            <img id="strokeImage" alt="문자 획순 애니메이션" />
+          </div>
+          <button id="replayStrokeButton" class="secondary-button">↻ 필순 다시 보기</button>
+          <div class="paper-prompt">
+            <span>✏️</span>
+            <div><strong>이제 종이나 연습장에 직접 써보세요.</strong><small>천천히 필순을 지키며 3번 써봅니다.</small></div>
+          </div>
+          <button id="writingDoneButton" class="primary-button">다 썼어요 →</button>
+        </section>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>

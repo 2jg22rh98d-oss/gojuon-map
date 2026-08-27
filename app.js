@@ -23,7 +23,7 @@ function makeColumn(c, col, h, k, romaji) {
 
 const lessons = [
   { id: 1, title: '자리와 소리 익히기', desc: '문자가 빛나는 위치를 보며 발음을 들어요', icon: '👀' },
-  { id: 2, title: '소리로 자리 찾기', desc: '발음을 듣고 오십음도의 알맞은 칸을 눌러요', icon: '👂' },
+  { id: 2, title: '소리로 자리 찾기', desc: '발음을 듣고 자리를 찾은 뒤 필순대로 직접 써요', icon: '👂' },
   { id: 3, title: '문자 카드 놓기', desc: '문자 카드를 기억한 위치에 놓아요', icon: '✋' },
   { id: 4, title: '소리와 문자 연결하기', desc: '소리나 히라가나를 단서로 문자와 자리를 찾아요', icon: '🧩' }
 ];
@@ -46,6 +46,7 @@ const screens = ['homeScreen', 'lessonScreen', 'resultScreen'];
 const charOf = item => script === 'hiragana' ? item.h : item.k;
 
 function showScreen(id) {
+  if (id !== 'lessonScreen') hideStrokePractice();
   screens.forEach(name => $(name).classList.toggle('active', name === id));
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -120,6 +121,7 @@ function speak(item) {
 
 function startLesson(id) {
   clearTimeout(sequenceTimer);
+  hideStrokePractice();
   lessonId = id;
   score = 0;
   attempts = 0;
@@ -155,7 +157,7 @@ function setupQuestion() {
   $('feedback').className = 'feedback';
 
   if (lessonId === 2) {
-    $('instruction').textContent = '발음을 잘 듣고 문자가 들어갈 칸을 눌러보세요.';
+    $('instruction').textContent = '발음을 듣고 자리를 찾으세요. 정답을 맞히면 필순을 보고 종이에 직접 써봅니다.';
     $('promptLabel').textContent = '들리는 문자의 자리를 찾아보세요';
     $('promptCharacter').textContent = '♪';
     renderBoard('quiz');
@@ -219,7 +221,11 @@ function handleCell(cell) {
     $('scoreText').textContent = `정답 ${score}`;
     speak(current);
     document.querySelector('.letter-card.selected')?.classList.add('used');
-    $('nextButton').hidden = false;
+    if (lessonId === 2) {
+      setTimeout(() => showStrokePractice(current), 450);
+    } else {
+      $('nextButton').hidden = false;
+    }
   } else {
     cell.classList.add('wrong');
     setTimeout(() => cell.classList.remove('wrong'), 400);
@@ -232,6 +238,32 @@ function handleCell(cell) {
 function flashCell(cell) {
   cell.classList.add('flash');
   setTimeout(() => cell.classList.remove('flash'), 650);
+}
+
+function strokeImagePath(item) {
+  return `assets/stroke-order/${script}/${item.romaji}.svg`;
+}
+
+function restartStrokeAnimation() {
+  if (!current) return;
+  $('strokeImage').src = `${strokeImagePath(current)}?play=${Date.now()}`;
+}
+
+function showStrokePractice(item) {
+  $('strokeCharacter').textContent = charOf(item);
+  $('strokeTitle').setAttribute('aria-label', `${charOf(item)}를 따라 써보세요`);
+  $('strokeImage').alt = `${charOf(item)} 획순 애니메이션`;
+  $('strokePractice').hidden = false;
+  document.body.classList.add('modal-open');
+  restartStrokeAnimation();
+  $('replayStrokeButton').focus();
+}
+
+function hideStrokePractice() {
+  const practice = $('strokePractice');
+  if (!practice) return;
+  practice.hidden = true;
+  document.body.classList.remove('modal-open');
 }
 
 function playSequence() {
@@ -300,6 +332,12 @@ $('backButton').addEventListener('click', () => {
 $('playSequenceButton').addEventListener('click', playSequence);
 $('nextButton').addEventListener('click', nextQuestion);
 $('replayButton').addEventListener('click', () => speak(current));
+$('replayStrokeButton').addEventListener('click', restartStrokeAnimation);
+$('writingDoneButton').addEventListener('click', () => {
+  hideStrokePractice();
+  $('nextButton').hidden = false;
+  $('nextButton').focus();
+});
 $('retryButton').addEventListener('click', () => startLesson(lessonId));
 $('resultHomeButton').addEventListener('click', () => { showScreen('homeScreen'); renderHome(); });
 $('soundButton').addEventListener('click', () => {
