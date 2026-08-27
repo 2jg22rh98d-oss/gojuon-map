@@ -65,6 +65,8 @@ button:focus-visible { outline: 3px solid rgba(239, 106, 91, .35); outline-offse
 .prompt-card { max-width: 520px; min-height: 86px; margin: 18px auto; padding: 14px 18px; border: 1px solid #f1c9c3; border-radius: 18px; background: var(--coral-pale); text-align: center; }
 .prompt-label { display: block; font-size: 12px; color: var(--coral-dark); }
 .prompt-card strong { display: block; margin: 5px 0; font: 36px serif; }
+.row-hint { width: fit-content; margin: 4px auto 10px; padding: 7px 13px; border-radius: 99px; color: var(--coral-dark); background: white; font-size: 13px; font-weight: 800; }
+.row-hint[hidden] { display: none; }
 .replay-button { min-width: 150px; padding: 11px 18px; border: 2px solid var(--coral); border-radius: 99px; background: white; color: var(--coral-dark); cursor: pointer; font-size: 14px; font-weight: 800; box-shadow: 0 5px 14px rgba(239, 106, 91, .14); }
 .replay-button:hover { color: white; background: var(--coral); }
 .board-wrap { overflow-x: auto; padding: 12px 2px 18px; }

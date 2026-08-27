@@ -151,6 +151,8 @@ function startLesson(id) {
 function setupQuestion() {
   current = questionSet[questionIndex];
   selectedCard = null;
+  $('rowHint').hidden = true;
+  $('rowHint').textContent = '';
   $('questionProgress').textContent = `${questionIndex + 1} / ${questionSet.length}`;
   $('nextButton').hidden = true;
   $('feedback').textContent = '';
@@ -160,6 +162,10 @@ function setupQuestion() {
     $('instruction').textContent = '발음을 듣고 자리를 찾으세요. 정답을 맞히면 필순을 보고 종이에 직접 써봅니다.';
     $('promptLabel').textContent = '들리는 문자의 자리를 찾아보세요';
     $('promptCharacter').textContent = '♪';
+    if (current.romaji === 'o' || current.romaji === 'wo') {
+      $('rowHint').textContent = `${current.col}의 소리입니다`;
+      $('rowHint').hidden = false;
+    }
     renderBoard('quiz');
     // Safari에서는 사용자 동작과 떨어진 지연 재생이 차단될 수 있어 즉시 실행합니다.
     speak(current);
