@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#516b91" />
+    <meta name="description" content="블록과 공간으로 익히는 일본어 기초 문형 학습 앱" />
+    <title>문형 스튜디오</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="spiral.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" id="homeButton" aria-label="처음으로">
+          <span class="brand-mark">文</span>
+          <span><strong>문형 스튜디오</strong><small>블록으로 만들고, 직접 말해요</small></span>
+        </button>
+        <div class="top-progress" aria-label="학습 진도"><span id="progressText">0 / 4 완료</span><div><i id="progressFill"></i></div></div>
+      </header>
+
+      <main>
+        <section id="homeScreen" class="screen active">
+          <div class="hero">
+            <p class="eyebrow">はじめての 文型</p>
+            <h1>문장을 <em>보고</em> 끝내지 말고<br />직접 <em>만들어</em> 보세요.</h1>
+            <p>뜻을 이해하고, 블록을 조립하고, 빈칸과 문장 전체를 직접 입력하면서 기초 문형을 익힙니다.</p>
+          </div>
+          <div class="unit-list" id="unitList"></div>
+          <aside class="study-tip"><span>💡</span><div><strong>한자 위의 작은 글자는 후리가나예요.</strong><p>한자를 아직 몰라도 발음을 읽을 수 있습니다.</p></div></aside>
+        </section>
+
+        <section id="lessonScreen" class="screen">
+          <header class="lesson-header">
+            <button class="back-button" id="backButton">← 단원 선택</button>
+            <div><span id="unitBadge">1단원</span><h1 id="unitTitle">～は～です</h1></div>
+          </header>
+
+          <nav class="phase-tabs" aria-label="학습 단계">
+            <button data-phase="learn" class="active">1. 알아보기</button>
+            <button data-phase="blocks">2. 블록 연습</button>
+            <button data-phase="typing">3. 빈칸 입력</button>
+            <button data-phase="full">4. 문장 입력</button>
+          </nav>
+
+          <section id="learnPhase" class="phase active"></section>
+
+          <section id="blocksPhase" class="phase">
+            <div class="practice-head">
+              <p class="eyebrow">BLOCK PRACTICE</p>
+              <h2>한국어에 맞게 문장을 만드세요.</h2>
+              <span id="blockCounter">1 / 4</span>
+            </div>
+            <article class="question-card">
+              <div id="sceneVisual" class="scene-visual"></div>
+              <p id="koreanPrompt" class="korean-prompt"></p>
+              <div id="answerZone" class="answer-zone" aria-label="문장 답안"></div>
+              <div id="blockBank" class="block-bank" aria-label="선택할 문장 블록"></div>
+              <div class="button-row">
+                <button id="undoBlock" class="secondary-button">↶ 하나 되돌리기</button>
+                <button id="checkBlocks" class="primary-button">정답 확인</button>
+              </div>
+              <p id="blockFeedback" class="feedback" aria-live="polite"></p>
+            </article>
+          </section>
+
+          <section id="typingPhase" class="phase">
+            <div class="practice-head">
+              <p class="eyebrow">SPIRAL PRACTICE</p>
+              <h2>문장의 빈칸에 들어갈 어휘를 입력하세요.</h2>
+              <span id="typingCounter">1 / 4</span>
+            </div>
+            <article class="typing-card">
+              <p id="clozeKorean" class="korean-prompt"></p>
+              <div id="clozeSentence" class="cloze-sentence"></div>
+              <span class="typing-label">후보 어휘를 참고해 빈칸의 읽기를 입력하세요.</span>
+              <div id="candidateWords" class="candidate-words"></div>
+              <input id="clozeInput" class="japanese-input" lang="ja" inputmode="text" autocomplete="off" placeholder="일본어로 입력" />
+              <button id="checkTyping" class="primary-button">입력 확인</button>
+              <p id="typingFeedback" class="feedback" aria-live="polite"></p>
+              <div id="exampleAfterTyping" class="example-after" hidden></div>
+            </article>
+          </section>
+
+          <section id="fullPhase" class="phase">
+            <div class="practice-head">
+              <p class="eyebrow">FINAL SENTENCE</p>
+              <h2>한국어 문장을 일본어로 완성하세요.</h2>
+              <span>1문제</span>
+            </div>
+            <article class="typing-card">
+              <div class="vocab-icon">✍️</div>
+              <span class="typing-label">문장 전체를 일본어로 입력하세요.</span>
+              <h3 id="fullKorean"></h3>
+              <input id="fullInput" class="japanese-input full-input" lang="ja" inputmode="text" autocomplete="off" placeholder="일본어 문장 입력" />
+              <p class="input-note">띄어쓰기와 문장부호는 채점에 영향을 주지 않습니다.</p>
+              <button id="checkFull" class="primary-button">문장 확인</button>
+              <p id="fullFeedback" class="feedback" aria-live="polite"></p>
+              <div id="fullAnswer" class="example-after" hidden></div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
