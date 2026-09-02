@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>숫자 스튜디오</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><button id="homeBtn" class="brand"><b>数</b><span><strong>숫자 스튜디오</strong><small>보고, 조립하고, 직접 써요</small></span></button></header>
+  <main>
+    <section id="home" class="screen active">
+      <p class="eyebrow">はじめての 数字</p>
+      <h1>같은 숫자가 <em>어떻게 변하는지</em><br>반복해서 발견해 보세요.</h1>
+      <p class="lead">기본 숫자부터 시·분·개·명·층·잔·장, 문장 속 숫자까지 단계적으로 연습합니다.</p>
+      <div class="course-list">
+        <button class="course" data-course="basic"><span class="num">01</span><span><strong>숫자 읽기</strong><small>0~10 · 십 단위 · 100</small></span><i>›</i></button>
+        <button class="course" data-course="counter"><span class="num">02</span><span><strong>숫자의 변신</strong><small>시 · 분 · 개 · 명 · 층 · 잔 · 장</small></span><i>›</i></button>
+        <button class="course" data-course="sentence"><span class="num">03</span><span><strong>문장 속 숫자</strong><small>뜻을 보고 숫자 표현 입력</small></span><i>›</i></button>
+      </div>
+      <aside class="tip">💡 틀린 표현은 잠시 뒤 다른 문제 사이에 다시 나타납니다.</aside>
+    </section>
+
+    <section id="lesson" class="screen">
+      <div class="lesson-head"><button id="backBtn" class="back">← 과정 선택</button><span id="badge"></span><h2 id="lessonTitle"></h2></div>
+      <nav id="tabs" aria-label="학습 단계"></nav>
+      <div id="content"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
