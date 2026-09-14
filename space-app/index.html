@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>위치·존재 표현 스튜디오</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="depth.css">
+</head>
+<body>
+  <header><button id="homeBtn" class="brand"><b>🧭</b><span><strong>위치·존재 표현 스튜디오</strong><small>보고, 움직이고, 문장으로 표현해요</small></span></button></header>
+  <main>
+    <section id="home" class="screen active">
+      <p class="eyebrow"><ruby>空間<rt>くうかん</rt></ruby>で<ruby>学<rt>まな</rt></ruby>ぶ <ruby>日本語<rt>にほんご</rt></ruby></p>
+      <h1>일본어 문장으로<br><em>공간을 완성해 보세요.</em></h1>
+      <p class="lead">위치를 보고 대상을 움직인 뒤, 문장을 조립하고 마지막에는 히라가나로 직접 표현합니다.</p>
+      <div class="goals"><span>위치</span><b><ruby>上<rt>うえ</rt></ruby>・<ruby>下<rt>した</rt></ruby>・<ruby>右<rt>みぎ</rt></ruby>・<ruby>左<rt>ひだり</rt></ruby>・<ruby>横<rt>よこ</rt></ruby>・<ruby>前<rt>まえ</rt></ruby>・<ruby>後<rt>うし</rt></ruby>ろ・<ruby>中<rt>なか</rt></ruby>・<ruby>外<rt>そと</rt></ruby>・<ruby>隣<rt>となり</rt></ruby></b><span>존재</span><b>に＋あります／います</b></div>
+      <button id="startBtn" class="start">학습 시작하기 <i>→</i></button>
+      <aside class="tip">💡 문제는 학습을 시작할 때마다 새로운 조합으로 출제됩니다.</aside>
+    </section>
+    <section id="lesson" class="screen">
+      <div class="lesson-head"><button id="backBtn" class="back">← 처음으로</button><span id="badge">01</span><h2 id="lessonTitle">위치 표현 익히기</h2></div>
+      <nav id="tabs" aria-label="학습 단계"></nav>
+      <div id="content"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
