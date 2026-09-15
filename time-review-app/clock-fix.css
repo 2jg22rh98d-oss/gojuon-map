@@ -1,0 +1,9 @@
+.clock:before,.clock:after{content:none}
+.clock>span{position:absolute;font-weight:900;font-size:13px;line-height:1;z-index:1}
+.clock .n12{top:10px;left:50%;transform:translateX(-50%)}
+.clock .n3{right:11px;top:50%;transform:translateY(-50%)}
+.clock .n6{bottom:10px;left:50%;transform:translateX(-50%)}
+.clock .n9{left:11px;top:50%;transform:translateY(-50%)}
+.hand{z-index:2}.pin{z-index:3}
+.digital,.cue{display:inline-block;font-size:32px!important;color:var(--blue);background:#fff;border:2px solid #bcd7e9;border-radius:13px;padding:9px 15px}
+.block-cue{display:block;margin-top:12px;color:var(--pink)}
