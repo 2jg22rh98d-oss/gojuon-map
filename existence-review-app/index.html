@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>존재·위치 표현 복습 스튜디오</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="scene-fix.css">
+</head>
+<body>
+<header><button id="homeBtn" class="brand"><b>📍</b><span><strong>존재·위치 표현 복습 스튜디오</strong><small>どこに なにが ありますか</small></span></button></header>
+<main>
+  <section id="home" class="screen active">
+    <p class="eyebrow">EXISTENCE & LOCATION</p>
+    <h1>무엇이 어디에 있는지<br><em>공간을 보며 표현해요.</em></h1>
+    <p class="lead">새 단어를 익히고, あります・います와 위치 관계를 장면 속에서 복습합니다.</p>
+    <div class="route"><span>단어</span><i>→</i><span>존재</span><i>→</i><span>위치</span><i>→</i><span>문장</span></div>
+    <button id="startBtn" class="start">복습 시작하기 <b>→</b></button>
+    <aside>💡 78쪽 7번과 8번 내용은 제외했습니다. 문제는 접속할 때마다 넉넉한 문제 풀에서 일부가 무작위로 출제됩니다.</aside>
+  </section>
+  <section id="lesson" class="screen">
+    <button id="backBtn" class="back">← 처음으로</button>
+    <div class="lesson-title"><span>復習</span><div><h2>존재와 위치 관계</h2><p>あります・います・위치 명사</p></div></div>
+    <nav id="tabs"></nav><div id="content"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

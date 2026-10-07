@@ -1,0 +1,96 @@
+.scene::after {
+  z-index: 0;
+}
+
+.place {
+  z-index: 2;
+}
+
+.furniture > span {
+  position: absolute;
+  z-index: 6;
+  top: 7px;
+  left: 50%;
+  min-width: 76px;
+  padding: 3px 9px;
+  transform: translateX(-50%);
+  color: var(--ink);
+  background: #fff7d8;
+  border: 1px solid #d8c16c;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #0002;
+  font-size: 16px;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.furniture > span ruby rt {
+  color: var(--blue);
+  font-size: .48em;
+}
+
+.object {
+  min-width: 120px;
+  min-height: 72px;
+  padding: 8px 10px;
+  overflow: visible;
+}
+
+.object > span {
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.object small {
+  width: max-content;
+  max-width: 170px;
+  margin: 6px auto 0;
+  padding: 4px 9px;
+  color: var(--ink);
+  background: #fff7d8;
+  border: 1px solid #d8c16c;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #0002;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.object ruby rt {
+  color: var(--blue);
+  font-size: .48em;
+}
+
+.relation-note {
+  margin: -4px 0 15px;
+  padding: 10px 13px;
+  color: #45636c;
+  background: #eef8fb;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 750;
+  text-align: center;
+}
+
+.pos-top { top: 5%; }
+.pos-bottom { bottom: 4%; }
+.pos-left { left: 3%; }
+.pos-right { right: 3%; }
+.pos-front { bottom: 6%; z-index: 4; }
+.pos-back { top: 6%; z-index: 1; opacity: 1; }
+.pos-inside { z-index: 4; min-width: 110px; }
+.pos-near { right: 7%; bottom: 6%; z-index: 4; }
+
+@media (max-width: 620px) {
+  .scene { height: 300px; }
+  .object {
+    min-width: 96px;
+    max-width: 140px;
+    min-height: 68px;
+    padding: 7px;
+  }
+  .object > span { font-size: 24px; }
+  .object small { max-width: 125px; font-size: 13px; }
+  .pos-left { left: 2%; }
+  .pos-right { right: 2%; }
+}
