@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7656b8">
+  <meta name="description" content="새 표현과 후리가나, 문장 연습으로 익히는 일본어 な형용사 학습 앱">
+  <title>な형용사 학습 스튜디오</title>
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<header>
+  <button id="homeBtn" class="brand" aria-label="처음으로">
+    <b>な</b><span><strong>な형용사 학습 스튜디오</strong><small>ことばから ぶんへ</small></span>
+  </button>
+</header>
+<main>
+  <section id="home" class="screen active">
+    <p class="eyebrow">NA-ADJECTIVE STUDIO</p>
+    <h1>새 표현과 な형용사를 익히고<br><em>문장으로 말해요.</em></h1>
+    <p class="lead">거리·음식 표현부터 추량의 そうだ, 현재·과거·긍정·부정, 명사 수식과 조사까지 단계적으로 연습합니다.</p>
+    <div class="form-preview" aria-label="부정형 두 표현 안내">
+      <span>静か<b>じゃありません</b></span><i>＝</i><span>静か<b>ではありません</b></span>
+    </div>
+    <div id="unitList" class="unit-list"></div>
+    <aside>💡 한자에는 후리가나를 표시합니다. 부정형은 <b>じゃありません</b>과 <b>ではありません</b>을 모두 학습하고 정답으로 인정합니다.</aside>
+  </section>
+
+  <section id="lesson" class="screen">
+    <button id="backBtn" class="back">← 학습 선택</button>
+    <div class="lesson-title"><span id="badge"></span><div><h2 id="title"></h2><p id="subtitle"></p></div></div>
+    <nav id="tabs" aria-label="학습 단계"></nav>
+    <div id="content"></div>
+  </section>
+</main>
+<script src="app.js?v=1"></script>
+</body>
+</html>
