@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#197a74">
+  <meta name="description" content="새 어휘와 문장으로 익히는 일본어 い형용사·な형용사 학습 앱">
+  <title>けいようしの森 — い・な형용사 학습</title>
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<header><button id="homeBtn" class="brand"><b>いな</b><span><strong>けいようしの森</strong><small>い形容詞・な形容詞</small></span></button></header>
+<main>
+  <section id="home" class="screen active">
+    <p class="eyebrow">ADJECTIVE LEARNING STUDIO</p>
+    <h1>두 종류의 형용사를<br><em>어휘에서 문장까지</em> 익혀요.</h1>
+    <p class="lead">새 어휘를 읽고, い형용사와 な형용사를 구별한 뒤 긍정·부정·명사 수식과 실제 문장을 단계적으로 연습합니다.</p>
+    <div class="preview"><span><b>新しい</b>辞書</span><i>／</i><span><b>便利な</b>手帳</span></div>
+    <div id="unitList" class="unit-list"></div>
+    <aside>💡 모든 한자에는 후리가나를 표시합니다. 문제는 매번 섞이며, 최근에 나온 항목은 다음 회차에서 우선 피합니다.</aside>
+  </section>
+  <section id="lesson" class="screen">
+    <button id="backBtn" class="back">← 학습 선택</button>
+    <div class="lesson-title"><span id="badge"></span><div><h2 id="title"></h2><p id="subtitle"></p></div></div>
+    <nav id="tabs"></nav><div id="content"></div>
+  </section>
+</main>
+<script src="script.js?v=1"></script>
+</body>
+</html>
